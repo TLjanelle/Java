@@ -1,5 +1,5 @@
 public class Course {
-    private String[] studentName;
+    private String[] classList;
     private String courseName;
     private int enrollment;
     private String instructorName;
@@ -8,7 +8,7 @@ public class Course {
         this.courseName = courseName;
         this.instructorName = instructorName;
         this.enrollment = 0;
-        this.classList = new String[maximumNumberofStudents];
+        this.classList = new String[maximumNumberOfStudents];
     }
 
     /**
