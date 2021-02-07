@@ -45,9 +45,7 @@ public class Stack {
     public String pop() throws EmptyStackException {
         if (this.empty()) {
             throw new EmptyStackException();
-        } else {
-            return list.remove(list.getTail());
-        }
+        } else return list.remove(list.getTail());
     }
 
     /**
@@ -55,11 +53,7 @@ public class Stack {
      * @return whether the stack is empty or not
      */
     public boolean empty() {
-        if (this.size() == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return list.getCount() == 0;
     }
 
     /**
@@ -68,4 +62,5 @@ public class Stack {
     public int size() {
         return list.getCount();
     }
+
 }
