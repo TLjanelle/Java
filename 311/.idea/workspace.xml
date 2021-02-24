@@ -20,7 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5427010e-86b1-4305-be87-9edaea0cae2d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fibonacci/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fibonacci/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fibonacci/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fibonacci/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fibonacci/Fibonacci.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fibonacci/src/main/java/Fibonacci.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +44,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
