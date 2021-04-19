@@ -1,5 +1,3 @@
 # Java
 
-A collection of Java projects and practice.
- 
-A collection of Java Programs written for practice.
+A collection of Java Programs written for university classes and practice.
