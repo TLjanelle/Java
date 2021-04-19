@@ -4,7 +4,7 @@ public class HashTableSimpleHash<K,V> extends HashTable<K,V> {
     /**
      * prehash: to map an object to an integer
      * */
-    int prehash(K key) {
+    private int prehash(K key) {
         // this key.hashCode method will return an integer for a given key.
         // The range of this "hash code" is the range of int
         // This is prehash although it's called hashCode in Java.
@@ -14,13 +14,18 @@ public class HashTableSimpleHash<K,V> extends HashTable<K,V> {
     /**
      * This is the naive hashing discussed in the lecture.
      */
-    int hashing(int key) {
-        // please replace the following line with your implementation
-        return -1;
+    private int hashing(int key) {
+        int hashKey = key % size;
+        return hashKey;
     }
 
+    /**
+     * This is the hash function calls prehash and hashing
+     * @param key the key
+     * @return the hash code for array indexing
+     */
     int hashFunction(K key) {
-        // please replace the following line with your implementation
-        return -1;
+        int preHashCode = prehash(key);
+        return hashing(preHashCode);
     }
 }

@@ -13,8 +13,8 @@ public class Node<V> {
 
     Node<V> parent;
     public Node<V> getParent(){return parent;}
-    Node<V> left;
-    Node<V> right;
+    Node<V> left; //points to left child of the current node
+    Node<V> right; //points to the right child
 
     /**
      * Constructor for main.java.Node
@@ -23,23 +23,31 @@ public class Node<V> {
      * @param parent the parent of the node
      */
     public Node(V element, Node<V> parent){
-        // todo: implement the constructor
+        // Completed todo: implement the constructor
+
+        // initialize element, parent, left, & right
+        this.element = element;
+        this.parent = parent;
+        left = null;
+        right = null;
     }
 
     /**
      * @return whether the node is a left child of its parent
      */
     public boolean isLeft(){
-        // todo: replace the following line with your implementation
-        return false;
+        // Completed todo: replace the following line with your implementation
+
+
+        return this.parent != null && this.parent.left == this;
     }
 
     /**
      * @return whether the node is a right child of its parent
      */
     public boolean isRight(){
-        // todo: replace the following line with your implementation
-        return false;
+        // Completed todo: replace the following line with your implementation
+        return this.parent !=null && this.parent.right == this;
     }
 
     /**
@@ -48,8 +56,9 @@ public class Node<V> {
      * @return the depth of the node
      */
     public int depth(){
-        // todo: replace the following line with your implementation
-        return -1;
+        // Completed todo: replace the following line with your implementation
+        if (this.parent == null) return 0;
+        return 1 + this.parent.depth();
     }
 
     /**
@@ -59,7 +68,21 @@ public class Node<V> {
      */
     public int height() {
         // todo: replace the following line with your implementation
-        return -1;
+        if (this.isExternal()) return 0;
+
+        // if (this.left != null) int leftHeight = this.left.height();
+        // if (this.right != null) int rightHeight = this.right.height();
+
+        // int maxHeight = max(leftHeight, rightHeight);
+        return 1;
+    }
+
+    private boolean isInternal() {
+        return left != null || right!= null;
+    }
+
+    private boolean isExternal() {
+        return !isInternal();
     }
 
     /**

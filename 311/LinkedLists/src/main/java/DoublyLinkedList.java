@@ -96,7 +96,7 @@ public class DoublyLinkedList implements LinkedList {
 
     }
 
-    /* Todo: implement this method */
+    /* COMPLETED: implement this method */
     @Override
     public void insertAfter(Node node, String value) throws IllegalArgumentException {
         if (!(node instanceof DoublyLinkedListNode)) {
@@ -116,24 +116,25 @@ public class DoublyLinkedList implements LinkedList {
             newNode.prev = targetNode;
             newNode.next = targetNext;
             targetNext.prev = newNode;
+
             // Set the new node’s prev to the target
-            //newNode.prev = targetNode;
+            //targetNode.next = newNode;
 
             // Set the new node’s next to the targetNext
-            //newNode.next = targetNode.next;
+            //newNode.prev = targetNode;
 
             // Set the targetN’s next to the new node
-            //targetNode.next = newNode;
+            //newNode.next = targetNextv;
 
             // Set the targetNext’s prev to the new node
-            //targetNode.next = newNode;
+            //targetNext.prev = newNode;
 
             // Increment count by one
             this.count++;
         }
     }
 
-    /* Todo: implement this method */
+    /* COMPLETED: implement this method */
     @Override
     public String remove(Node node) throws IllegalArgumentException {
         if (!(node instanceof DoublyLinkedListNode)) {

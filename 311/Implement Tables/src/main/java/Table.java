@@ -10,7 +10,7 @@ package main.java;
 public interface Table<K, V> {
     /**
      * Add a pair of (key, value) to the table.
-     * The value cannot be null.
+     * The value can be null.
      * If the key is already in the table, overwrite the existing value with the new value.
      *
      * (The parameters and the return value are copied from the openjdk implementation of HashMap)

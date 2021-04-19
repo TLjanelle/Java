@@ -42,6 +42,11 @@ public class BinaryTree<V> {
      */
     public BinaryTree(){
         // todo: implement the constructor
+        // initilize root to null
+        this.root = null;
+
+        // initialize size to 0
+        this.size = 0;
     }
 
     /**
@@ -55,8 +60,14 @@ public class BinaryTree<V> {
      * @return the newly created root node if success; null if the tree already has a root
      */
     public Node<V> addRoot(V element){
-        // todo: replace the following line with your implementation
-        return null;
+        // Complete todo: replace the following line with your implementation
+        if (this.root != null) return null;
+
+        // create a node with the element
+        Node<V> newNode = new Node(element, null);
+        this.root = newNode;
+        this.size++;
+        return this.root;
     }
 
     /**
@@ -70,8 +81,13 @@ public class BinaryTree<V> {
      * @return the newly created left child if the {@code node} does not already have a left child
      */
     public Node<V> addLeftChild(Node<V> node, V element) {
-        // todo: replace the following line with your implementation
-        return null;
+        // Complete todo: replace the following line with your implementation
+        if (node.isLeft()) return null;
+
+        Node<V> newNode = new Node(element,node);
+        node.left = newNode;
+        this.size++;
+        return node.left;
     }
 
     /**
@@ -85,8 +101,12 @@ public class BinaryTree<V> {
      * @return the newly created right child if the {@code node} does not already have a right child
      */
     public Node<V> addRightChild(Node<V> node, V element) {
-        // todo: replace the following line with your implementation
-        return null;
+        // Complete todo: replace the following line with your implementation
+        if (node.isRight()) return null;
+        Node<V> newNode = new Node(element,node);
+        node.right = newNode;
+        this.size++;
+        return node.right;
     }
 
     /**
@@ -100,6 +120,30 @@ public class BinaryTree<V> {
      */
     public boolean remove(Node<V> p){
         // todo: replace the following line with your implementation
+
+        // Case `
+        if (p.left != null && p.right !=null) return false;
+
+        //Case 2
+        Node<V> child = null;
+        if (p.left != null) child  = p.left;
+        if (p.right !=null) child = p.right;
+        if (p.isLeft()) {
+            p.parent.left = child;
+            child.parent = p.parent;
+        }
+        if (p.isRight()) {
+            p.parent.left = child;
+            child.parent = p.parent;
+        }
+
+        // Case 3
+        if (p.isLeft()) p.parent.left = null;
+        if (p.isRight()) p.parent.right = null;
+        if (p == this.root) this.root = null;
+
+        this.size--;
+
         return false;
     }
 

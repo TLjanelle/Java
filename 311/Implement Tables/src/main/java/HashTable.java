@@ -1,7 +1,6 @@
 package main.java;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * A hash table that use chaining to resolve collisions.
@@ -11,40 +10,97 @@ abstract class HashTable<K, V> implements Table<K, V>  {
     final int size = 1024;
 
     public HashTable(){
-        // todo: please implement this method
+        // COMPLETED: please implement this method
+
+        // Create an Array to hold an element of Array List
+        bucketArray = new ArrayList[size];
+        // Instantiate the list
+        for (int i = 0; i < bucketArray.length; i++) {
+            bucketArray[i] = new ArrayList<>();
+        }
     }
 
     abstract int hashFunction(K key);
 
+    private Item<K, V> findItem(ArrayList<Item<K, V>> list, K key) {
+        for (Item<K, V> item : list) {
+            if (item.key.equals(key)) return item;
+        }
+        return null;
+    }
 
     @Override
     public V put(K key, V value) {
-        // please replace the following line with your implementation
-        return null;
+        // get the hash code
+        int hashCode = hashFunction(key);
+        ArrayList<Item<K, V>> list = this.bucketArray[hashCode];
+
+        // find the list
+        Item<K, V> item = this.findItem(list, key);
+
+        // add the item to the list
+        if (item == null) {
+            list.add(new Item<>(key, value));
+            return null;
+        } else {
+            V oldValue = item.value;
+            item.value = value;
+            return oldValue;
+        }
     }
 
     @Override
     public V get(K key) {
-        // please replace the following line with your implementation
-        return null;
+        // get the hash code
+        int hashCode = hashFunction(key);
+        ArrayList<Item<K, V>> list = this.bucketArray[hashCode];
+
+        // find the list
+        Item<K, V> item = this.findItem(list, key);
+
+        //get the item from the list
+        if (item == null) {
+            return null;
+        } else {
+            return item.value;
+        }
     }
 
     @Override
     public V remove(K key) {
-        // please replace the following line with your implementation
-        return null;
+        // get the hash code
+        int hashCode = hashFunction(key);
+        ArrayList<Item<K, V>> list = this.bucketArray[hashCode];
+
+        // find the list
+        Item<K, V> item = this.findItem(list, key);
+
+        // remove the item from the list
+        if (item == null) {
+            return null;
+        } else {
+            V oldValue = item.value;
+            list.remove(item);
+            return oldValue;
+        }
     }
 
     @Override
     public boolean containsKey(K key) {
-        // please replace the following line with your implementation
-        return false;
+        // get the hash code
+        int hashCode = hashFunction(key);
+        ArrayList<Item<K, V>> list = this.bucketArray[hashCode];
+
+        // find the list
+        Item<K, V> item = this.findItem(list, key);
+
+        return item != null;
     }
 
     @Override
     public void clear(){
-        for (int i = 0; i < bucketArray.length; i++) {
-            bucketArray[i].clear();
+        for (ArrayList<Item<K, V>> items : bucketArray) {
+            items.clear();
         }
     }
 

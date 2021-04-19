@@ -6,13 +6,11 @@ import main.java.HashTableUniversalHash;
 import main.java.Table;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.provider.Arguments;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -328,7 +326,7 @@ class TableTest {
         }
 
         String output = table.toString();
-        String[] outputLines = output.split(System.getProperty("line.separator"));
+        String[] outputLines = output.split("\n");
         if (tableType.equals("ElementaryTable")) {
             List<String> elementaryExpected = getStrings("/test/resources/elementary");
             for (int i = 0; i < elementaryExpected.size(); i++) {
