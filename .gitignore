@@ -1,4 +1,8 @@
-.idea
-.vscode
-.iml
-.out
+*.idea
+*.vscode
+*.iml
+*.out
+
+# Default ignored files
+/shelf/
+/workspace.xml
