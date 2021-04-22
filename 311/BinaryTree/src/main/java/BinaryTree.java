@@ -82,7 +82,7 @@ public class BinaryTree<V> {
      */
     public Node<V> addLeftChild(Node<V> node, V element) {
         // Complete todo: replace the following line with your implementation
-        if (node.isLeft()) return null;
+        if (node.left != null) return null;
 
         Node<V> newNode = new Node(element,node);
         node.left = newNode;
@@ -102,7 +102,7 @@ public class BinaryTree<V> {
      */
     public Node<V> addRightChild(Node<V> node, V element) {
         // Complete todo: replace the following line with your implementation
-        if (node.isRight()) return null;
+        if (node.right != null) return null;
         Node<V> newNode = new Node(element,node);
         node.right = newNode;
         this.size++;
@@ -126,22 +126,23 @@ public class BinaryTree<V> {
 
         //Case 2
         Node<V> child = null;
-        if (p.left != null) child  = p.left;
+        if (p.left != null) child = p.left;
         if (p.right !=null) child = p.right;
         if (p.isLeft()) {
             p.parent.left = child;
-            child.parent = p.parent;
+            if (child != null) child.parent = p.parent;
         }
         if (p.isRight()) {
             p.parent.left = child;
-            child.parent = p.parent;
+            if (child != null)child.parent = p.parent;
         }
 
         // Case 3
-        if (p.isLeft()) p.parent.left = null;
-        if (p.isRight()) p.parent.right = null;
-        if (p == this.root) this.root = null;
-
+        if (p == this.root) {
+            this.root = child;
+            if (child != null) child.parent = null; 
+        }
+        
         this.size--;
 
         return false;

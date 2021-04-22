@@ -70,11 +70,14 @@ public class Node<V> {
         // todo: replace the following line with your implementation
         if (this.isExternal()) return 0;
 
-        // if (this.left != null) int leftHeight = this.left.height();
-        // if (this.right != null) int rightHeight = this.right.height();
+        int leftHeight = 0;
+        int rightHeight = 0;
+        if (this.left != null) leftHeight = this.left.height() + 1;
+        if (this.right != null) rightHeight = this.right.height() + 1;
 
-        // int maxHeight = max(leftHeight, rightHeight);
-        return 1;
+        int maxHeight = Math.max(leftHeight, rightHeight);
+        
+        return maxHeight;
     }
 
     private boolean isInternal() {
