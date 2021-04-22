@@ -41,7 +41,7 @@ public class BinaryTree<V> {
      * This method will build an empty tree.
      */
     public BinaryTree(){
-        // todo: implement the constructor
+        // COMPLETED todo: implement the constructor
         // initilize root to null
         this.root = null;
 
@@ -60,7 +60,7 @@ public class BinaryTree<V> {
      * @return the newly created root node if success; null if the tree already has a root
      */
     public Node<V> addRoot(V element){
-        // Complete todo: replace the following line with your implementation
+        // COMPLETED todo: replace the following line with your implementation
         if (this.root != null) return null;
 
         // create a node with the element
@@ -81,7 +81,7 @@ public class BinaryTree<V> {
      * @return the newly created left child if the {@code node} does not already have a left child
      */
     public Node<V> addLeftChild(Node<V> node, V element) {
-        // Complete todo: replace the following line with your implementation
+        // COMPLETED todo: replace the following line with your implementation
         if (node.left != null) return null;
 
         Node<V> newNode = new Node(element,node);
@@ -101,7 +101,7 @@ public class BinaryTree<V> {
      * @return the newly created right child if the {@code node} does not already have a right child
      */
     public Node<V> addRightChild(Node<V> node, V element) {
-        // Complete todo: replace the following line with your implementation
+        // COMPLETED todo: replace the following line with your implementation
         if (node.right != null) return null;
         Node<V> newNode = new Node(element,node);
         node.right = newNode;
@@ -119,9 +119,9 @@ public class BinaryTree<V> {
      * @return whether the node is removed or not
      */
     public boolean remove(Node<V> p){
-        // todo: replace the following line with your implementation
+        // COMPLETED todo: replace the following line with your implementation
 
-        // Case `
+        // Case 1
         if (p.left != null && p.right !=null) return false;
 
         //Case 2
@@ -133,19 +133,18 @@ public class BinaryTree<V> {
             if (child != null) child.parent = p.parent;
         }
         if (p.isRight()) {
-            p.parent.left = child;
+            p.parent.right = child;
             if (child != null)child.parent = p.parent;
         }
 
         // Case 3
         if (p == this.root) {
             this.root = child;
-            if (child != null) child.parent = null; 
+            if (child != null) child.parent = null;
         }
-        
-        this.size--;
 
-        return false;
+        this.size--;
+        return true;
     }
 
     /**

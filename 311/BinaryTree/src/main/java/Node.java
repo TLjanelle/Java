@@ -23,7 +23,7 @@ public class Node<V> {
      * @param parent the parent of the node
      */
     public Node(V element, Node<V> parent){
-        // Completed todo: implement the constructor
+        // COMPLETED todo: implement the constructor
 
         // initialize element, parent, left, & right
         this.element = element;
@@ -36,7 +36,7 @@ public class Node<V> {
      * @return whether the node is a left child of its parent
      */
     public boolean isLeft(){
-        // Completed todo: replace the following line with your implementation
+        // COMPLETED todo: replace the following line with your implementation
 
 
         return this.parent != null && this.parent.left == this;
@@ -46,7 +46,7 @@ public class Node<V> {
      * @return whether the node is a right child of its parent
      */
     public boolean isRight(){
-        // Completed todo: replace the following line with your implementation
+        // COMPLETED todo: replace the following line with your implementation
         return this.parent !=null && this.parent.right == this;
     }
 
@@ -56,7 +56,7 @@ public class Node<V> {
      * @return the depth of the node
      */
     public int depth(){
-        // Completed todo: replace the following line with your implementation
+        // COMPLETED todo: replace the following line with your implementation
         if (this.parent == null) return 0;
         return 1 + this.parent.depth();
     }
@@ -67,7 +67,7 @@ public class Node<V> {
      * @return the height of the node
      */
     public int height() {
-        // todo: replace the following line with your implementation
+        // COMPLETED todo: replace the following line with your implementation
         if (this.isExternal()) return 0;
 
         int leftHeight = 0;
